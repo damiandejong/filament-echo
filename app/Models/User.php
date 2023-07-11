@@ -48,4 +48,9 @@ class User extends Authenticatable implements FilamentUser, HasTenants, MustVeri
     {
         return Team::all();
     }
+
+    public function pages()
+    {
+        return $this->hasMany(Page::class);
+    }
 }

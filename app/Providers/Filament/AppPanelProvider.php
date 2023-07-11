@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\App\Pages\EditProfile;
+use App\Filament\App\Pages\EditTeamProfile;
 use App\Filament\App\Pages\RegisterTeam;
 use App\Filament\Pages\Auth\Login;
 use App\Models\Team;

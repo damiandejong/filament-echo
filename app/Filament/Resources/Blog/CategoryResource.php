@@ -63,7 +63,7 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\BooleanColumn::make('is_visible')
+                Tables\Columns\CheckboxColumn::make('is_visible')
                     ->label('Visibility'),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label('Last Updated')

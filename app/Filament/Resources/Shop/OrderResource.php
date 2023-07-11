@@ -282,6 +282,7 @@ class OrderResource extends Resource
                 ])
                 ->createOptionAction(function (Forms\Components\Actions\Action $action) {
                     return $action
+                        ->size('sm')
                         ->modalHeading('Create customer')
                         ->modalButton('Create customer')
                         ->modalWidth('lg');
