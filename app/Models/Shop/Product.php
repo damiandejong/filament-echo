@@ -2,7 +2,9 @@
 
 namespace App\Models\Shop;
 
+use App\Broadcasting\ProductChannel;
 use App\Models\Comment;
+use Illuminate\Database\Eloquent\BroadcastsEvents;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,6 +15,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Product extends Model implements HasMedia
 {
+    use BroadcastsEvents;
     use HasFactory;
     use InteractsWithMedia;
 
@@ -45,5 +48,10 @@ class Product extends Model implements HasMedia
     public function comments(): MorphMany
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function broadcastOn($event)
+    {
+        return [$this, new ProductChannel()];
     }
 }
